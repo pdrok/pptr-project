@@ -26,11 +26,10 @@ describe('My First Puppeteer Test', () => {
 		expect(count).to.equal(2)
 
 		await page.goto('http://zero.webappsecurity.com/index.html')
-		await page.waitForSelector('#searchTerm')
-		await page.type('#searchTerm', 'Hello World')
-		await page.keyboard.press('Enter', { delay: 10 })
-		await page.waitForTimeout(5000)
-
+		await page.waitForSelector('#signin_button')
+		await page.click('#signin_button')
+		// await page.waitForTimeout(() => !document.querySelector('#signin_button'))
+		await page.waitForSelector('#signin_button', { hidden: true })
 		await browser.close()
 	})
 })

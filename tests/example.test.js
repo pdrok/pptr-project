@@ -1,9 +1,8 @@
 const puppeteer = require('puppeteer')
 const expect = require('chai').expect
 
-const { click } = require('../lib/helpers')
-const { getText } = require('../lib/helpers')
-const { getCount } = require('../lib/helpers')
+const { click, getText, getCount, shouldNotExist } = require('../lib/helpers')
+
 describe('My First Puppeteer Test', () => {
 	let browser
 	let page
@@ -47,6 +46,8 @@ describe('My First Puppeteer Test', () => {
 		await page.goto('http://zero.webappsecurity.com/index.html')
 
 		await click(page, '#signin_button')
-		await page.waitForSelector('#signin_button', { hidden: true })
+		//await page.waitForSelector('#signin_button', { hidden: true })
+		await page.waitForTimeout(2000)
+		await shouldNotExist(page, '#signin_button')
 	})
 })

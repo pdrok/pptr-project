@@ -29,7 +29,7 @@ describe('Feedback Test', () => {
 		await page.waitForSelector('form')
 		await page.type('#name', 'Name')
 		await page.type('#email', 'mail@mail.com')
-		await page.type('#subjet', 'Subjet')
+		await page.type('#subject', 'Subjet')
 		await page.type('#comment', 'Just a message on the text area')
 		await page.click('input[type="submit"]')
 	})
